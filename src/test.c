@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:00 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/18 18:25:39 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/02/18 19:33:01 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int			draw_square_drug(int keycode, t_mlx *mlx_s)
 	FT_INIT(int, max_y, 0);
 	FT_INIT(int, color, 0);
 
+	FT_INIT_COORD(int, start[2], 10, 10);
+	FT_INIT_COORD(int, end[2], 100, 100);
 	srand(time(NULL) + rand());
 	if (keycode == 53)
 		exit(EXIT_SUCCESS);
@@ -52,6 +54,7 @@ int			draw_square_drug(int keycode, t_mlx *mlx_s)
 	}
 	else if (keycode == 49)
 	{
+		/*
 		x = (rand()%(500 - 1) + 1);
 		max_x = x + 50;
 		tmp_x = x;
@@ -68,7 +71,8 @@ int			draw_square_drug(int keycode, t_mlx *mlx_s)
 				x++;
 			}
 			y++;
-		}
+			} */
+		draw_line(start, end, mlx_s);
 	}
 	return (0);
 }
