@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   lib_draw.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/18 18:06:55 by sgaudin          ###   ########.fr       */
+/*   Created: 2016/02/25 15:14:19 by sgaudin           #+#    #+#             */
+/*   Updated: 2016/02/25 15:56:07 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef LIB_DRAW_H
+# define LIB_DRAW_H
 
-# include "../libft/includes/libft.h"
-# include <mlx.h>
-# include <math.h>
-# include <stdio.h>
-# include <time.h>
+# include "fdf.h"
 
-# define FT_INIT(t, n, v)	t n = v
-
-typedef struct	s_mlx
-{
-	void		*mlx;
-	void		*win;
-	int			tamer;
-}				t_mlx;
+int				draw_line(t_point *start, t_point *end, int color, t_mlx *s_mlx);
 
 #endif

@@ -5,49 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/18 18:27:56 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/18 19:34:02 by sgaudin          ###   ########.fr       */
+/*   Created: 2016/02/25 15:10:59 by sgaudin           #+#    #+#             */
+/*   Updated: 2016/02/25 16:48:31 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void		d_incx(int start[2], int inc_tab[2], int m_tab[2], int color)
+static t_line	*init_line(t_point *s, t_point *e, int i_x, int i_y, int color)
 {
-	FT_INIT(int, cumul, mx / 2);
-	FT_INIT(int, x, start[0]);
-	FT_INIT(int, y, start[1]);
+	t_line	*line;
 
-	while (x <= inc_tab[0])
-	{
-		x += inc_tab[0];
-		cumul += m_tab[1];
-		if (cumul >= m_tab[0])
-		{
-			cumul -= m_tab[0];
-			y += inc_tab[1];
-		}
-		mlx_pixel_put(list->mlx, list->win, x, y, color);
-	}
+	if (!(line = (t_line*)malloc(sizeof(line))))
+		return (NULL);
+	line->start = s;
+	line->end = e;
+	line->inc_x = i_x;
+	line->inc_y = i_y;
+	line->color = color;
+	return (line);
 }
 
-void		draw_line(int start[2], int end[2], t_mlx *list)
+static int		line_2(t_line *line, int dx, int dy, t_mlx *s_mlx)
 {
-	FT_INIT(int, mx, end[0] - start[0]);
-	FT_INIT(int, my, end[1] - start[1]);
-	FT_INIT(int, inc_x, 0);
-	FT_INIT(int, inc_y, 0);
-	FT_INIT(int, color, WHITE);
+	FT_INIT(int, cumul, (2 * dx) - dy);
+	FT_INIT(int, incrE, 2 * dx);
+	FT_INIT(int, incrNE, 2 * (dx - dy));
+	FT_INIT(int, x, line->start->x);
+	FT_INIT(int, y, line->start->y);
 
-	inc_x = mx < 0 ? -1 : 1;
-	inc_y = my < 0 ? -1 : 1;
-	ft_abs(mx);
-	ft_abs(my);
-	FT_INIT_COORD(int, m_tab[2], mx, my);
-	FT_INIT_COORD(int, inc_tab[2], inc_x, inc_y);
-	mlx_pixel_put(list->mlx, list->win, start[0], start[1], color);
-	if (mx > my)
-		d_incx(start, inc_tab, m_tab, list, color);
+	while (y <= line->end->y)
+	{
+		y += line->inc_y;
+		mlx_pixel_put(s_mlx->mlx, s_mlx->win, x, y, line->color);
+		if (cumul >= 0)
+		{
+			x += line->inc_x;
+			cumul += incrNE;
+		}
+		else
+			cumul += incrE;
+	}
+	return (0);
+}
+
+static int		line_1(t_line *line, int dx, int dy, t_mlx *s_mlx)
+{
+	FT_INIT(int, cumul, (2 * dy) - dx);
+	FT_INIT(int, incrE, 2 * dy);
+	FT_INIT(int, incrNE, 2 * (dy - dx));
+	FT_INIT(int, x, line->start->x);
+	FT_INIT(int, y, line->start->y);
+
+	while (x <= line->end->x)
+	{
+		x += line->inc_x;
+		mlx_pixel_put(s_mlx->mlx, s_mlx->win, x, y, line->color);
+		if (cumul >= 0)
+		{
+			y += line->inc_y;
+			cumul += incrNE;
+		}
+		else
+			cumul += incrE;
+	}
+	return (0);
+}
+
+int				draw_line(t_point *start, t_point *end, int color, t_mlx *s_mlx)
+{
+	FT_INIT(int, dx, end->x - start->x);
+	FT_INIT(int, dy, end->y - start->y);
+	int		inc_x;
+	int		inc_y;
+	t_line	*line;
+
+	inc_x = dx < 0 ? -1 : 1;
+	inc_y = dy < 0 ? -1 : 1;
+	if (!(line = init_line(start, end, inc_x, inc_y, color)))
+		return (-1);
+	ft_abs(dx);
+	ft_abs(dy);
+	if (dx > dy)
+		line_1(line, dx, dy, s_mlx);
 	else
-		d_incy(start, inc_x, inc_y, list, color);
+		line_2(line, dx, dy, s_mlx);
+	ft_memdel((void **)&line);
+	return (0);
 }

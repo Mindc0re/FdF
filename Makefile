@@ -6,7 +6,7 @@
 #    By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/18 17:13:57 by sgaudin           #+#    #+#              #
-#    Updated: 2016/02/18 19:30:50 by sgaudin          ###   ########.fr        #
+#    Updated: 2016/02/25 16:07:31 by sgaudin          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,13 +27,16 @@ BIN = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CC_FLAGS) $(SRC) -o $(NAME) -I./includes
+	@make -C libft/ re
+	@$(CC) $(CC_FLAGS) $(SRC) $(LIB_DRAW_SRC) -o $(NAME) -I./includes -L./libft/ -lft
 
 clean:
-	rm -rf $(BIN)
+	@make -C libft/ clean
+	@rm -rf $(BIN)
 
 fclean: clean
-	rm -rf $(NAME)
+	@make -C libft/ fclean
+	@rm -rf $(NAME)
 
 re: fclean all
 
