@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:00 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/25 16:54:19 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/02/25 17:27:53 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			draw_square_drug(int keycode, t_mlx *mlx_s)
 		free(start_y);
 		free(end_x);
 		free(end_y);
+		free(mlx_s);
 		exit(EXIT_SUCCESS);
 	}
 	else if (keycode == HAUT)

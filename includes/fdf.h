@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/25 16:34:29 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/02/25 17:27:02 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct	s_mlx
 
 typedef struct	s_point
 {
-	float		x;
-	float		y;
+	double		x;
+	double		y;
 }				t_point;
 
 typedef struct	s_line

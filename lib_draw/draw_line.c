@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:10:59 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/25 16:48:31 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/02/25 17:31:47 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ int				draw_line(t_point *start, t_point *end, int color, t_mlx *s_mlx)
 		line_1(line, dx, dy, s_mlx);
 	else
 		line_2(line, dx, dy, s_mlx);
-	ft_memdel((void **)&line);
+	free(line);
 	return (0);
 }
