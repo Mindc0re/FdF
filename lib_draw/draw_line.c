@@ -6,23 +6,25 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:10:59 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/25 17:31:47 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/02 12:06:45 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include <stdio.h>
 
-static t_line	*init_line(t_point *s, t_point *e, int i_x, int i_y, int color)
+static t_line	*init_line(t_point3d *s, t_point3d *e, int ix, int iy, int c)
 {
-	t_line	*line;
+	t_line		*line;
 
-	if (!(line = (t_line*)malloc(sizeof(line))))
-		return (NULL);
-	line->start = s;
-	line->end = e;
-	line->inc_x = i_x;
-	line->inc_y = i_y;
-	line->color = color;
+	line = (t_line *)malloc(sizeof(t_line));
+	line->start = (t_vector *)malloc(sizeof(t_vector));
+	line->end = (t_vector *)malloc(sizeof(t_vector));
+	line->start = s->coord;
+	line->end = e->coord;
+	line->inc_x = ix;
+	line->inc_y = iy;
+	line->color = c;
 	return (line);
 }
 
@@ -72,10 +74,10 @@ static int		line_1(t_line *line, int dx, int dy, t_mlx *s_mlx)
 	return (0);
 }
 
-int				draw_line(t_point *start, t_point *end, int color, t_mlx *s_mlx)
+int				draw_line(t_point3d *start, t_point3d *end, int color, t_mlx *s_mlx)
 {
-	FT_INIT(int, dx, end->x - start->x);
-	FT_INIT(int, dy, end->y - start->y);
+	FT_INIT(int, dx, end->x_2d - start->x_2d);
+	FT_INIT(int, dy, end->y_2d - start->y_2d);
 	int		inc_x;
 	int		inc_y;
 	t_line	*line;
@@ -90,6 +92,12 @@ int				draw_line(t_point *start, t_point *end, int color, t_mlx *s_mlx)
 		line_1(line, dx, dy, s_mlx);
 	else
 		line_2(line, dx, dy, s_mlx);
+//	printf("COUCOU1\n");
+	free(line->start);
+//	printf("COUCOU2\n");
+	free(line->end);
+//	printf("COUCOU3\n");
 	free(line);
+//	printf("COUCOU4\n");
 	return (0);
 }

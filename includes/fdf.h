@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/25 17:27:02 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/02 11:51:17 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,25 @@ enum
 				HAUT
 }				keys;
 
+typedef struct	s_vector
+{
+	double		x;
+	double		y;
+	double		z;
+}				t_vector;
+
+typedef struct	s_camera
+{
+	t_vector	*cam_pos;
+	t_vector	*cam_ang;
+	double		cosx;
+	double		cosy;
+	double		cosz;
+	double		sinx;
+	double		siny;
+	double		sinz;
+}				t_camera;
+
 typedef struct	s_mlx
 {
 	void		*mlx;
@@ -43,16 +62,17 @@ typedef struct	s_mlx
 	int			color;
 }				t_mlx;
 
-typedef struct	s_point
+typedef struct	s_point3d
 {
-	double		x;
-	double		y;
-}				t_point;
+	t_vector	*coord;
+	double		x_2d;
+	double		y_2d;
+}				t_point3d;
 
 typedef struct	s_line
 {
-	t_point		*start;
-	t_point		*end;
+	t_vector	*start;
+	t_vector	*end;
 	int			inc_x;
 	int			inc_y;
 	int			color;

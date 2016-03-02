@@ -6,12 +6,12 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:00 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/02/25 17:40:14 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/02 10:23:24 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include "../includes/lib_draw.h"
+#include <stdio.h>
 
 int			draw_square_drug(int keycode, t_mlx *mlx_s)
 {
@@ -83,7 +83,7 @@ int			draw_square_drug(int keycode, t_mlx *mlx_s)
 
 int			main(void)
 {
-	t_mlx	*mlx_s;
+	t_mlx		*mlx_s;
 
 	mlx_s = (t_mlx *)malloc(sizeof(mlx_s));
 	mlx_s->mlx = mlx_init();
