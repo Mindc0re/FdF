@@ -5,100 +5,69 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/02 10:22:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/02 11:57:16 by sgaudin          ###   ########.fr       */
+/*   Created: 2016/03/24 09:14:07 by sgaudin           #+#    #+#             */
+/*   Updated: 2016/03/24 17:44:35 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include "../includes/lib_draw.h"
-#include <stdio.h>
 
-t_camera	*init_cam(void)
+int		fdf(int keycode, t_all *all)
 {
-	t_camera *cam;
+	t_pt3d	st;
+	t_pt3d	endx;
+	t_pt3d	endy;
+	t_pt3d	endz;
 
-	cam = (t_camera *)malloc(sizeof(t_camera));
-	cam->cam_ang = (t_vector *)malloc(sizeof(t_vector));
-	cam->cam_pos = (t_vector *)malloc(sizeof(t_vector));
-	cam->cam_ang->x = 0;
-	cam->cam_ang->y = 0;
-	cam->cam_ang->z = 0;
-	cam->cam_pos->x = 0;
-	cam->cam_pos->y = 0;
-	cam->cam_pos->z = 0;
-	cam->cosx = cos(cam->cam_ang->x);
-	cam->cosy = cos(cam->cam_ang->y);
-	cam->cosz = cos(cam->cam_ang->z);
-	cam->sinx = sin(cam->cam_ang->x);
-	cam->siny = sin(cam->cam_ang->y);
-	cam->sinz = sin(cam->cam_ang->z);
-	return (cam);
-}
-
-int			fdf(int keycode, t_mlx *mlx)
-{
-	static t_camera		*cam = NULL;
-	static t_point3d	*point_xs = NULL;
-	static t_point3d	*point_xe = NULL;
-
-	if (!cam || !point_xs)
+	if (keycode == ESC)
 	{
-		mlx->color = RED;
-		point_xs = (t_point3d *)malloc(sizeof(t_point3d));
-		point_xs->coord = (t_vector *)malloc(sizeof(t_vector));
-		point_xs->coord->x = 50;
-		point_xs->coord->y = 50;
-		point_xs->coord->z = 0;
-		point_xe = (t_point3d *)malloc(sizeof(t_point3d));
-		point_xe->coord = (t_vector *)malloc(sizeof(t_vector));
-		point_xe->coord->x = 350;
-		point_xe->coord->y = 350;
-		point_xe->coord->z = 0;
-		cam = init_cam();
-	}
-	if (keycode == 53)
-	{
-		printf("1\n");
-		free(cam->cam_pos);
-		printf("2\n");
-		free(cam->cam_ang);
-		printf("3\n");
-		free(cam);
-		printf("4\n");
-		free(point_xs->coord);
-		printf("5\n");
-		free(point_xs);
-		printf("6\n");
-		free(point_xe->coord);
-		printf("7\n");
-		free(point_xe);
-		printf("8\n");
+		free_all(all);
+		free(st.coord);
+		free(endx.coord);
+/*		free(endz.coord);
+		free(endy.coord); */
 		exit(EXIT_SUCCESS);
 	}
-	if (keycode == HAUT)
-	{
-/*		conversion3d(point_xs, cam);
-		printf("XS ---> x = %f et y %f\n", point_xs->coord->x, point_xs->coord->y);
-		conversion3d(point_xe, cam);
-		printf("XE ---> x = %f et y %f\n", point_xe->coord->x, point_xe->coord->y); */
-		draw_line(point_xs, point_xe, RED, mlx);
-	}
+	else if (keycode == GAUCHE)
+		all->cam->cam_pos->x -= 10;
+	else if (keycode == HAUT)
+		all->cam->cam_pos->y -= 10;
+	else if (keycode == DROITE)
+		all->cam->cam_pos->x += 10;
+	else if (keycode == BAS)
+		all->cam->cam_pos->y += 10;
+	else if (keycode == 34)
+		all->zoom += 1;
+	else if (keycode == 40)
+		all->zoom -= 1;
+	mlx_clear_window(all->mlx, all->win);
+
+	init_pt(&st, 0, 0, 0);
+	conversion3d(&st, all);
+	init_pt(&endx, 30, 0, 0);
+	conversion3d(&endx, all);
+
+	init_pt(&endy, 0, 30, 0);
+	conversion3d(&endy, all);
+
+	init_pt(&endz, 0, 0, 15);
+	conversion3d(&endz, all);
+
+	draw_line2(&st, &endy, GREEN, all);
+	draw_line2(&st, &endx, RED, all);
+	draw_line2(&st, &endz, BLUE, all);
 	return (0);
 }
 
-int		main(void)
+int		main()
 {
-	t_mlx	*mlx;
+	t_all	all;
 
-	mlx = (t_mlx *)malloc(sizeof(mlx));
-	mlx->mlx = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx, 500, 500, "FDF MA CAILLE");
-	mlx_key_hook(mlx->win, fdf, mlx);
-	mlx_loop(mlx->mlx);
+	all.mlx = mlx_init();
+	all.win = mlx_new_window(all.mlx, 500, 500, "FdF");
+	init_all(&all);
+	mlx_key_hook(all.win, fdf, &all);
+	mlx_loop(all.mlx);
 	return (0);
 }
-
-
-
-

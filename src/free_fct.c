@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_draw.h                                         :+:      :+:    :+:   */
+/*   free_fct.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 15:14:19 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/24 15:05:10 by sgaudin          ###   ########.fr       */
+/*   Created: 2016/03/24 10:36:39 by sgaudin           #+#    #+#             */
+/*   Updated: 2016/03/24 17:34:32 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_DRAW_H
-# define LIB_DRAW_H
+#include "../includes/fdf.h"
 
-# include "fdf.h"
-
-int				draw_line(t_pt3d *start, t_pt3d *end, int color, t_all *all);
-int				draw_line2(t_pt3d *start, t_pt3d *end, int color, t_all *all);
-int				conversion3d(t_pt3d *point, t_all *all);
-
-#endif
+void		free_all(t_all *all)
+{
+	ft_memdel((void **)all->cam->cam_pos);
+	ft_memdel((void **)all->cam->cam_ang);
+	ft_memdel((void **)all->cam);
+}

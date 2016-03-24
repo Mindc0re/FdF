@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/02 11:51:17 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/24 17:35:32 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,15 @@
 # define GREEN 0x0000FF00
 
 /* **************** KEYS ***************** */
+# define ESC 53
+
 enum
 {
 				GAUCHE = 123,
 				DROITE,
 				BAS,
 				HAUT
-}				keys;
+}				dir_keys;
 
 typedef struct	s_vector
 {
@@ -55,27 +57,44 @@ typedef struct	s_camera
 	double		sinz;
 }				t_camera;
 
-typedef struct	s_mlx
-{
-	void		*mlx;
-	void		*win;
-	int			color;
-}				t_mlx;
-
-typedef struct	s_point3d
+typedef struct	s_pt3d
 {
 	t_vector	*coord;
 	double		x_2d;
 	double		y_2d;
-}				t_point3d;
+}				t_pt3d;
 
 typedef struct	s_line
 {
 	t_vector	*start;
 	t_vector	*end;
-	int			inc_x;
-	int			inc_y;
+	double		inc_x;
+	double		inc_y;
 	int			color;
 }				t_line;
 
+typedef struct	s_all
+{
+	void		*mlx;
+	void		*win;
+	int			color;
+	t_camera	*cam;
+	t_vector	*me;
+	double		zoom;
+}				t_all;
+
+void	init_all(t_all *all);
+void	free_all(t_all *all);
+void	init_pt(t_pt3d *pt, double x, double y, double z);
+
 #endif
+
+
+
+
+
+
+
+
+
+
