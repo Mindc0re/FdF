@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/24 17:37:17 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/25 18:19:19 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ void		init_all(t_all *all)
 	all->cam->cam_ang->x = 0;
 	all->cam->cam_ang->y = 0;
 	all->cam->cam_ang->z = 0;
-	all->cam->cosx = cos(all->cam->cam_ang->x);
-	all->cam->cosy = cos(all->cam->cam_ang->y);
-	all->cam->cosz = cos(all->cam->cam_ang->z);
-	all->cam->sinx = sin(all->cam->cam_ang->x);
-	all->cam->siny = sin(all->cam->cam_ang->y);
-	all->cam->sinz = sin(all->cam->cam_ang->z);
 }
 
 void	init_pt(t_pt3d *pt, double x, double y, double z)
@@ -41,4 +35,19 @@ void	init_pt(t_pt3d *pt, double x, double y, double z)
 	pt->coord->z = z;
 	pt->x_2d = x;
 	pt->y_2d = y;
+}
+
+t_pt3d	*init_map(t_all *all, int z)
+{
+	t_pt3d *map;
+
+	map = (t_pt3d *)malloc(sizeof(t_pt3d));
+	map->coord = (t_vector *)malloc(sizeof(t_vector));
+	map->coord->x = 0;
+	map->coord->y = 0;
+	map->coord->z = z;
+	map->prev = NULL;
+	map->next = NULL;
+	all->map = map;
+	return (map);
 }
