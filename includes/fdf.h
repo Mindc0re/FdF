@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 15:41:41 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:03:39 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,20 @@
 # define PINK 0x00F400A1
 # define GOLD 0x00FFD700
 
-/* **************** KEYS ***************** */
-# define ESC		53
-/*# define W			13
-# define A			0
-# define S			1
-# define D			2
-*/
 enum {
+	ESC = 53,
 	GAUCHE = 123,
 	DROITE,
 	BAS,
 	HAUT,
-	W = 13,
+	Q = 12,
+	W,
+	E,
 	A = 0,
 	S,
 	D,
+	KP_MORE = 69,
+	KP_LESS = 78,
 	KP_1 = 83,
 	KP_2,
 	KP_3,
@@ -56,8 +54,10 @@ enum {
 	KP_6,
 	KP_7,
 	KP_8 = 91,
-	KP_9
-}					dir_keys;
+	KP_9,
+	ALT_L = 261,
+	ALT_R
+}					keys;
 
 typedef struct		s_vector
 {
@@ -101,6 +101,7 @@ typedef struct		s_all
 	t_camera		*cam;
 	double			zoom;
 	t_pt3d			*map;
+	double			depth;
 }					t_all;
 
 void				init_all(t_all *all);

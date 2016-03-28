@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 14:12:40 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:23:11 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void		init_all(t_all *all)
 	all->zoom = 5;
 	all->cam->cam_pos->x = 0;
 	all->cam->cam_pos->y = 0;
-	all->cam->cam_pos->z = -10;
+	all->cam->cam_pos->z = -30;
 	all->cam->cam_ang->x = 0;
 	all->cam->cam_ang->y = 0;
 	all->cam->cam_ang->z = 0;
+	all->depth = 1;
 }
 
 void		init_pt(t_pt3d *pt, double x, double y, double z)
