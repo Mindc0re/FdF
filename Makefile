@@ -6,7 +6,7 @@
 #    By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/18 17:13:57 by sgaudin           #+#    #+#              #
-#    Updated: 2016/03/28 11:06:19 by sgaudin          ###   ########.fr        #
+#    Updated: 2016/03/28 11:59:41 by sgaudin          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,11 +14,14 @@ NAME = fdf
 
 CC = gcc #-Wall -Wextra -Werror
 
+LIB_D = lib_draw/
+
 CC_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
 SRC = src/parser.c src/init_fct.c src/free_fct.c src/key_hooks.c
 
-LIB_DRAW_SRC = lib_draw/draw_line.c lib_draw/perspective3d.c lib_draw/math_fct.c
+LIB_DRAW_SRC = $(LIB_D)draw_line.c $(LIB_D)perspective3d.c \
+	$(LIB_D)math_fct.c $(LIB_D)draw_map.c
 
 LIB_DRAW_BIN = $(LIB_DRAW_SRC:.c=.o)
 

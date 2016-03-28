@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 11:26:22 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 11:52:07 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # include <stdio.h>
 # include <time.h>
 
-# define FT_INIT(t, n, v)	t n = v
-# define FT_MULTI(a, b, c)	a = b = c
+# define FT_INIT(t, n, v)			t n = v
+# define FT_MULTI3(a, b, c)			a = b = c
+# define FT_MULTI4(a, b, c, d)		a = b = c = d
 
 /* **************** COLORS *************** */
 # define WHITE 0x00FFFFFF
@@ -96,6 +97,5 @@ void				free_map(t_pt3d *map);
 int					key_hook_default(int keycode, t_all *all);
 
 int					parser(int fd, t_all *all);
-int					draw_map(t_all *all);
 
 #endif

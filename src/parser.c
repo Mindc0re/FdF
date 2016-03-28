@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:37:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 11:27:22 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 11:38:03 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,51 +25,6 @@ static t_pt3d		*new_point(t_pt3d *map, int x, int y, int z)
 	new->prev = map;
 	new->next = NULL;
 	return (new);
-}
-
-/*
-void	print_map(t_pt3d *map)
-{
-	FT_INIT(int, test, 0);
-	while (map->prev)
-		map = map->prev;
-	while (map)
-	{
-		if (test == 19)
-		{
-			printf("\n");
-			test = 0;
-		}
-		printf("%d ", (int)map->coord->z);
-		map = map->next;
-		test++;
-	}
-}
-*/
-
-int					draw_map(t_all *all)
-{
-	t_pt3d	*tmp;
-
-	while (all->map->prev)
-		all->map = all->map->prev;
-	tmp = all->map;
-	while (tmp)
-	{
-		if (tmp->next && tmp->next->coord->x == tmp->coord->x + 1
-			&& tmp->next->coord->y == tmp->coord->y)
-		{
-			if (tmp->coord->z > all->cam->cam_pos->z &&
-				tmp->next->coord->z > all->cam->cam_pos->z)
-			{
-				conversion3d(tmp, all);
-				conversion3d(tmp->next, all);
-				draw_line(tmp, tmp->next, WHITE, all);
-			}
-		}
-		tmp = tmp->next;
-	}
-	return (1);
 }
 
 int					parser(int fd, t_all *all)
@@ -114,7 +69,6 @@ int					main(int ac, char **av)
 	{
 		fd = open(av[1], O_RDONLY);
 		parser(fd, &all);
-//		mlx_loop_hook(all.mlx, draw_map, &all);
 		mlx_key_hook(all.win, key_hook_default, &all);
 		mlx_loop(all.mlx);
 	}

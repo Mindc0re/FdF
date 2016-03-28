@@ -6,11 +6,12 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 11:29:07 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 13:05:58 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include "../includes/lib_draw.h"
 
 int			key_hook_default(int keycode, t_all *all)
 {
@@ -32,7 +33,15 @@ int			key_hook_default(int keycode, t_all *all)
 		all->zoom += 1;
 	else if (keycode == 40)
 		all->zoom -= 1;
+	else if (keycode == W)
+		all->cam->cam_ang->x += 1;
+	else if (keycode == S)
+		all->cam->cam_ang->x -= 1;
+	else if (keycode == A)
+		all->cam->cam_ang->y -= 1;
+	else if (keycode == D)
+		all->cam->cam_ang->y += 1;
 	mlx_clear_window(all->mlx, all->win);
-	draw_map(all);
+	draw_map_x(all);
 	return (1);
 }
