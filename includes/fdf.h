@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 10:06:32 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 11:26:22 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,13 @@ typedef struct		s_all
 void				init_all(t_all *all);
 void				init_pt(t_pt3d *pt, double x, double y, double z);
 t_pt3d				*init_map(t_all *all, double z);
+
 void				free_all(t_all *all);
+void				free_map(t_pt3d *map);
+
+int					key_hook_default(int keycode, t_all *all);
+
+int					parser(int fd, t_all *all);
+int					draw_map(t_all *all);
 
 #endif

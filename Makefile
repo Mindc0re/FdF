@@ -6,7 +6,7 @@
 #    By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/18 17:13:57 by sgaudin           #+#    #+#              #
-#    Updated: 2016/03/28 09:57:50 by sgaudin          ###   ########.fr        #
+#    Updated: 2016/03/28 11:06:19 by sgaudin          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,9 +16,9 @@ CC = gcc #-Wall -Wextra -Werror
 
 CC_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
-SRC = src/parser.c src/init_fct.c src/free_fct.c
+SRC = src/parser.c src/init_fct.c src/free_fct.c src/key_hooks.c
 
-LIB_DRAW_SRC = lib_draw/draw_line2.c lib_draw/perspective3d.c lib_draw/math_fct.c
+LIB_DRAW_SRC = lib_draw/draw_line.c lib_draw/perspective3d.c lib_draw/math_fct.c
 
 LIB_DRAW_BIN = $(LIB_DRAW_SRC:.c=.o)
 
