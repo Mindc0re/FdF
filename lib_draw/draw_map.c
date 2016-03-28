@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 11:35:37 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 12:18:22 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 15:50:58 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int				draw_map_y(t_all *all)
 				{
 					conversion3d(tmp_prev, all);
 					conversion3d(tmp, all);
-					draw_line(tmp_prev, tmp, WHITE, all);
+					draw_line(tmp_prev, tmp, GOLD, all);
 				}
 				tmp_prev = tmp;
 			}
@@ -64,7 +64,7 @@ int				draw_map_x(t_all *all)
 			{
 				conversion3d(tmp, all);
 				conversion3d(tmp->next, all);
-				draw_line(tmp, tmp->next, WHITE, all);
+				draw_line(tmp, tmp->next, GOLD, all);
 			}
 		}
 		tmp = tmp->next;

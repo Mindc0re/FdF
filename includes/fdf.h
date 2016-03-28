@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 11:52:07 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 15:41:41 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,34 @@
 # define RED 0x00FF0000
 # define BLUE 0x000000FF
 # define GREEN 0x0000FF00
+# define PINK 0x00F400A1
+# define GOLD 0x00FFD700
 
 /* **************** KEYS ***************** */
 # define ESC		53
-# define W			13
+/*# define W			13
 # define A			0
 # define S			1
 # define D			2
-
+*/
 enum {
 	GAUCHE = 123,
 	DROITE,
 	BAS,
-	HAUT
+	HAUT,
+	W = 13,
+	A = 0,
+	S,
+	D,
+	KP_1 = 83,
+	KP_2,
+	KP_3,
+	KP_4,
+	KP_5,
+	KP_6,
+	KP_7,
+	KP_8 = 91,
+	KP_9
 }					dir_keys;
 
 typedef struct		s_vector
@@ -62,6 +77,7 @@ typedef struct		s_pt3d
 	t_vector		*coord;
 	double			x_2d;
 	double			y_2d;
+	int				print;
 	struct s_pt3d	*prev;
 	struct s_pt3d	*next;
 }					t_pt3d;
