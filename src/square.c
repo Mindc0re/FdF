@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:14:07 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/25 18:18:03 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 10:09:05 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,22 +73,22 @@ int		fdf(int keycode, t_all *all)
 	conversion3d(&n, all);
 	conversion3d(&o, all);
 
-	draw_line2(&origin, &i, GREEN, all);
-	draw_line2(&origin, &j, RED, all);
-	draw_line2(&origin, &k, BLUE, all);
-	draw_line2(&j, &o, WHITE, all);
-	draw_line2(&o, &i, WHITE, all);
-	draw_line2(&i, &l, WHITE, all);
-	draw_line2(&k, &l, WHITE, all);
-	draw_line2(&o, &n, WHITE, all);
-	draw_line2(&n, &l, WHITE, all);
-	draw_line2(&m, &k, WHITE, all);
-	draw_line2(&j, &m, WHITE, all);
-	draw_line2(&m, &n, WHITE, all);
+	draw_line(&origin, &i, GREEN, all);
+	draw_line(&origin, &j, RED, all);
+	draw_line(&origin, &k, BLUE, all);
+	draw_line(&j, &o, WHITE, all);
+	draw_line(&o, &i, WHITE, all);
+	draw_line(&i, &l, WHITE, all);
+	draw_line(&k, &l, WHITE, all);
+	draw_line(&o, &n, WHITE, all);
+	draw_line(&n, &l, WHITE, all);
+	draw_line(&m, &k, WHITE, all);
+	draw_line(&j, &m, WHITE, all);
+	draw_line(&m, &n, WHITE, all);
 	return (0);
 }
 
-int		main()
+int		main(void)
 {
 	t_all	all;
 

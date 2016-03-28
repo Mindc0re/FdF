@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/25 18:19:26 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 10:06:32 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@
 # define S			1
 # define D			2
 
-enum
-{
-					GAUCHE = 123,
-					DROITE,
-					BAS,
-					HAUT
+enum {
+	GAUCHE = 123,
+	DROITE,
+	BAS,
+	HAUT
 }					dir_keys;
 
 typedef struct		s_vector
@@ -87,9 +86,9 @@ typedef struct		s_all
 	t_pt3d			*map;
 }					t_all;
 
-void	init_all(t_all *all);
-void	init_pt(t_pt3d *pt, double x, double y, double z);
-t_pt3d	*init_map(t_all *all, int z);
-void	free_all(t_all *all);
+void				init_all(t_all *all);
+void				init_pt(t_pt3d *pt, double x, double y, double z);
+t_pt3d				*init_map(t_all *all, double z);
+void				free_all(t_all *all);
 
 #endif

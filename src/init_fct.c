@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/25 18:19:19 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/28 10:08:42 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		init_all(t_all *all)
 	all->cam->cam_ang->z = 0;
 }
 
-void	init_pt(t_pt3d *pt, double x, double y, double z)
+void		init_pt(t_pt3d *pt, double x, double y, double z)
 {
 	pt->coord = (t_vector *)malloc(sizeof(t_vector));
 	pt->coord->x = x;
@@ -37,7 +37,7 @@ void	init_pt(t_pt3d *pt, double x, double y, double z)
 	pt->y_2d = y;
 }
 
-t_pt3d	*init_map(t_all *all, int z)
+t_pt3d		*init_map(t_all *all, double z)
 {
 	t_pt3d *map;
 
