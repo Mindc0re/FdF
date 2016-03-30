@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 09:06:57 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 10:08:18 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/30 12:50:43 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			conversion3d(t_pt3d *point, t_all *all)
 		+ opcos(all->cam->cam_ang->z) * x))) - opsin(all->cam->cam_ang->x)
 		* (opcos(all->cam->cam_ang->z) * y - opsin(all->cam->cam_ang->z) * x);
 	point->print = point->coord->z > all->cam->cam_pos->z ? 1 : 0;
-	point->x_2d = ((10 / z_mod) * x_mod) * all->zoom + all->win_len / 8;
-	point->y_2d = ((10 / z_mod) * y_mod) * all->zoom + all->win_wid / 8;
+	point->x_2d = ((10 / z_mod) * x_mod) * all->zoom + all->win_len / 2;
+	point->y_2d = ((10 / z_mod) * y_mod) * all->zoom + all->win_wid / 2;
 	return (0);
 }

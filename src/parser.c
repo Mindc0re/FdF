@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:37:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 11:27:24 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/30 12:53:44 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int					main(int ac, char **av)
 		fd = open(av[1], O_RDONLY);
 		parser(fd, &all);
 		mlx_key_hook(all.win, key_hook_default, &all);
+		draw_map_x(&all);
 		mlx_loop(all.mlx);
 	}
 	else
