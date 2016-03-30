@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:37:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 15:50:51 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/30 09:22:26 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static t_pt3d		*new_point(t_pt3d *map, int x, int y, int z)
 	new->coord->z = z;
 	new->prev = map;
 	new->next = NULL;
+	new->print = 1;
 	return (new);
 }
 

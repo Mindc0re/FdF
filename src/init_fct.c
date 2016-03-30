@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 16:23:11 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/30 09:18:29 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void		init_pt(t_pt3d *pt, double x, double y, double z)
 	pt->coord->z = z;
 	pt->x_2d = x;
 	pt->y_2d = y;
+	pt->print = 1;
 }
 
 t_pt3d		*init_map(t_all *all, double z)
