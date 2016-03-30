@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_fct.c                                         :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/24 10:36:39 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 11:28:06 by sgaudin          ###   ########.fr       */
+/*   Created: 2016/03/30 11:04:21 by sgaudin           #+#    #+#             */
+/*   Updated: 2016/03/30 11:38:47 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include "../includes/lib_draw.h"
 
-void		free_all(t_all *all)
+int			rotation_x(t_pt3d *pt, t_all *all)
 {
-	free(all->cam->cam_pos);
-	free(all->cam->cam_ang);
-	free(all->rotation);
-	free(all->cam);
-}
-
-void		free_map(t_pt3d *map)
-{
-	t_pt3d *tmp;
-
-	tmp = (t_pt3d *)malloc(sizeof(t_pt3d));
-	while (map)
+	if (all->rotation->x)
 	{
-		tmp = map->next;
-		ft_memdel((void **)&map->coord);
-		ft_memdel((void **)map);
-		map = tmp;
+		pt->coord->x = (pt->coord->x * opcos(all->rotation->x))
+			- (pt->coord->y * opsin(all->rotation->x));
+		pt->coord->y = (pt->coord->x * opsin(all->rotation->x))
+			- (pt->coord->y * opcos(all->rotation->x));
 	}
-	ft_memdel((void **)tmp);
+	return (0);
 }

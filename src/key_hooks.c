@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 10:10:08 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/30 11:34:15 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ int			key_hook_default(int keycode, t_all *all)
 		all->depth -= 0.2;
 	else if (keycode == E)
 		all->depth += 0.2;
+	else if (keycode == KP_4)
+		all->rotation->x -= 15;
+	else if (keycode == KP_6)
+		all->rotation->x += 15;
 	mlx_clear_window(all->mlx, all->win);
 	draw_map_x(all);
 	return (1);

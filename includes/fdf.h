@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/28 16:03:39 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/30 11:26:30 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,11 @@ typedef struct		s_all
 	int				win_len;
 	int				win_wid;
 	int				color;
-	t_camera		*cam;
-	double			zoom;
-	t_pt3d			*map;
 	double			depth;
+	double			zoom;
+	t_camera		*cam;
+	t_pt3d			*map;
+	t_vector		*rotation;
 }					t_all;
 
 void				init_all(t_all *all);
