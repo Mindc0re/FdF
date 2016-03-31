@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 12:53:58 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 14:40:35 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ int			key_hook_default(int keycode, t_all *all)
 	else if (keycode == KP_LESS)
 		all->zoom -= 1;
 	else if (keycode == W)
-		all->cam->cam_ang->x += 5;
+		all->cam->cam_ang->x += opmod(5, 360);
 	else if (keycode == S)
-		all->cam->cam_ang->x -= 5;
+		all->cam->cam_ang->x += opmod(-5, 360);
 	else if (keycode == A)
-		all->cam->cam_ang->y -= 5;
+		all->cam->cam_ang->y += opmod(-5, 360);
 	else if (keycode == D)
-		all->cam->cam_ang->y += 5;
+		all->cam->cam_ang->y += opmod(5, 360);
 	else if (keycode == ALT_L)
-		all->cam->cam_ang->z += 5;
+		all->cam->cam_ang->z += opmod(5, 360);
 	else if (keycode == ALT_R)
-		all->cam->cam_ang->z -= 5;
+		all->cam->cam_ang->z += opmod(-5, 360);
 	else if (keycode == Q)
 		all->depth -= 0.2;
 	else if (keycode == E)

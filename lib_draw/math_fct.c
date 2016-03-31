@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 14:46:53 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 13:24:34 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 14:33:02 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ double		opsin(double n)
 			list[i] = sinf(i * 2 * M_PI / 360);
 	}
 	return (list[(int)n % 360]);
+}
+
+double		opmod(double n, double base)
+{
+	return (n < 0.0 ? fmod(((fmod(n, base)) + base), base) : fmod(n, base));
 }
