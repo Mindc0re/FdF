@@ -6,29 +6,32 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 16:04:52 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 16:20:34 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include "../includes/lib_draw.h"
 
+void		init_vector(t_vector *vector, double x, double y, double z)
+{
+	vector->x = x;
+	vector->y = y;
+	vector->z = z;
+}
+
 void		init_all(t_all *all)
 {
 	all->cam = (t_camera *)malloc(sizeof(t_camera));
 	all->cam->cam_pos = (t_vector *)malloc(sizeof(t_vector));
 	all->cam->cam_ang = (t_vector *)malloc(sizeof(t_vector));
+	all->midmap = (t_vector *)malloc(sizeof(t_vector));
 	all->rotation = (t_vector *)malloc(sizeof(t_vector));
 	all->zoom = 50;
-	all->cam->cam_pos->x = 0;
-	all->cam->cam_pos->y = 0;
-	all->cam->cam_pos->z = -30;
-	all->cam->cam_ang->x = 0;
-	all->cam->cam_ang->y = 0;
-	all->cam->cam_ang->z = 0;
-	all->rotation->x = 0;
-	all->rotation->y = 0;
-	all->rotation->z = 0;
+	init_vector(all->cam->cam_pos, 0, 0, -30);
+	init_vector(all->cam->cam_ang, 0, 0, 0);
+	init_vector(all->rotation, 0, 0, 0);
+	init_vector(all->midmap, 0, 0, 0);
 	all->depth = 1;
 	all->color = GOLD;
 	all->degrade = 0;

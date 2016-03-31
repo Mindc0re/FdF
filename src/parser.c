@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:37:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 15:16:40 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 16:23:27 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int					parser(int fd, t_all *all)
 
 	FT_INIT(int, y, 0);
 	FT_INIT(int, i, 0);
+	FT_INIT(int, max_x, 0);
 	FT_INIT(char *, line, ft_strnew(1));
 	FT_INIT(t_pt3d *, map, NULL);
 	while (get_next_line(fd, &line))
@@ -51,7 +52,9 @@ int					parser(int fd, t_all *all)
 			map = map->next;
 			i++;
 		}
+		max_x = i > max_x ? i : max_x;
 		y++;
 	}
+	init_vector(all->midmap, max_x / 2, (y - 1) / 2, 0);
 	return (1);
 }

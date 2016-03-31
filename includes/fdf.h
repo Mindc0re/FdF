@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 16:07:21 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 16:25:02 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,13 @@ typedef struct		s_all
 	double			zoom;
 	t_camera		*cam;
 	t_pt3d			*map;
+	t_vector		*midmap;
 	t_vector		*rotation;
 }					t_all;
 
 void				init_all(t_all *all);
 void				init_pt(t_pt3d *pt, double x, double y, double z);
+void				init_vector(t_vector *vector, double x, double y, double z);
 t_pt3d				*init_map(t_all *all, double z);
 
 void				free_all(t_all *all);
@@ -117,3 +119,12 @@ int					key_hook_second(int keycode, t_all *all);
 int					parser(int fd, t_all *all);
 
 #endif
+
+
+
+
+
+
+
+
+

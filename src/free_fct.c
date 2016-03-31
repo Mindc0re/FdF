@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 10:36:39 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 11:28:06 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 16:20:20 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void		free_all(t_all *all)
 	free(all->cam->cam_pos);
 	free(all->cam->cam_ang);
 	free(all->rotation);
+	free(all->midmap);
 	free(all->cam);
 }
 
