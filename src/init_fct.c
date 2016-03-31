@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 12:51:05 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 16:04:52 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void		init_all(t_all *all)
 	all->rotation->y = 0;
 	all->rotation->z = 0;
 	all->depth = 1;
+	all->color = GOLD;
+	all->degrade = 0;
 }
 
 void		init_pt(t_pt3d *pt, double x, double y, double z)
