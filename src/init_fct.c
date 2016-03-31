@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 16:20:34 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 17:26:07 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ void		init_all(t_all *all)
 void		init_pt(t_pt3d *pt, double x, double y, double z)
 {
 	pt->coord = (t_vector *)malloc(sizeof(t_vector));
-	pt->coord->x = x;
-	pt->coord->y = y;
-	pt->coord->z = z;
+	init_vector(pt->coord, x, y, z);
 	pt->x_2d = x;
 	pt->y_2d = y;
 	pt->print = 1;
