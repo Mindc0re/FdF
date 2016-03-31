@@ -6,7 +6,7 @@
 #    By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/18 17:13:57 by sgaudin           #+#    #+#              #
-#    Updated: 2016/03/30 11:23:20 by sgaudin          ###   ########.fr        #
+#    Updated: 2016/03/31 15:16:50 by sgaudin          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,7 +18,7 @@ LIB_D = lib_draw/
 
 CC_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
-SRC = src/parser.c src/init_fct.c src/free_fct.c src/key_hooks.c
+SRC = src/parser.c src/init_fct.c src/free_fct.c src/key_hooks.c src/main.c
 
 LIB_DRAW_SRC = $(LIB_D)draw_line.c $(LIB_D)perspective3d.c \
 	$(LIB_D)math_fct.c $(LIB_D)draw_map.c $(LIB_D)rotation.c

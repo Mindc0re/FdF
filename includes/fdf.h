@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 11:26:30 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 15:19:22 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # define FT_MULTI3(a, b, c)			a = b = c
 # define FT_MULTI4(a, b, c, d)		a = b = c = d
 
-/* **************** COLORS *************** */
 # define WHITE 0x00FFFFFF
 # define RED 0x00FF0000
 # define BLUE 0x000000FF
@@ -112,7 +111,8 @@ t_pt3d				*init_map(t_all *all, double z);
 void				free_all(t_all *all);
 void				free_map(t_pt3d *map);
 
-int					key_hook_default(int keycode, t_all *all);
+int					key_hook_first(int keycode, t_all *all);
+int					key_hook_second(int keycode, t_all *all);
 
 int					parser(int fd, t_all *all);
 

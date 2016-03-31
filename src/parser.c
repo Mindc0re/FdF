@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:37:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/30 12:53:44 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/03/31 15:16:40 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,4 @@ int					parser(int fd, t_all *all)
 		y++;
 	}
 	return (1);
-}
-
-int					main(int ac, char **av)
-{
-	int			fd;
-	t_all		all;
-
-	all.mlx = mlx_init();
-	all.win_len = 500;
-	all.win_wid = 500;
-	all.win = mlx_new_window(all.mlx, all.win_len, all.win_wid, "FdF");
-	init_all(&all);
-	if (ac == 2)
-	{
-		fd = open(av[1], O_RDONLY);
-		parser(fd, &all);
-		mlx_key_hook(all.win, key_hook_default, &all);
-		draw_map_x(&all);
-		mlx_loop(all.mlx);
-	}
-	else
-	{
-		ft_putstr("No file input\n");
-		return (0);
-	}
-	return (0);
 }
