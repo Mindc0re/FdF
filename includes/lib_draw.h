@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:14:19 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 15:40:30 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/01 11:05:38 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ double			opcos(double n);
 double			opsin(double n);
 double			opmod(double n, double base);
 
-int				rotation_x(t_pt3d *pt, t_all *all);
+int				rotation(t_all *all);
 
 int				draw_line(t_pt3d *start, t_pt3d *end, t_all *all);
 int				draw_map_x(t_all *all);

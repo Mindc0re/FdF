@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 11:35:37 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 17:43:29 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/01 11:07:03 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int				draw_map_y(t_all *all)
 			{
 				conversion3d(tmp_prev, all);
 				conversion3d(tmp, all);
-				rotation_x(tmp_prev, all);
-				rotation_x(tmp, all);
 				all->degrade = tmp->coord->z - tmp_prev->coord->z != 0 ? 1 : all->degrade;
 				if (tmp->print && tmp_prev->print)
 					draw_line(tmp_prev, tmp, all);
@@ -61,8 +59,6 @@ int				draw_map_x(t_all *all)
 		{
 			conversion3d(tmp, all);
 			conversion3d(tmp->next, all);
-			rotation_x(tmp, all);
-			rotation_x(tmp->next, all);
 			all->degrade = tmp->coord->z - tmp->next->coord->z != 0 ? 1 : 0;
 			if (tmp->print && tmp->next->print)
 				draw_line(tmp, tmp->next, all);

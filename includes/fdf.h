@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/03/31 16:25:02 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/01 15:52:02 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ enum {
 	A = 0,
 	S,
 	D,
+	R = 15,
+	F = 3,
 	KP_MORE = 69,
 	KP_LESS = 78,
 	KP_1 = 83,
@@ -119,12 +121,3 @@ int					key_hook_second(int keycode, t_all *all);
 int					parser(int fd, t_all *all);
 
 #endif
-
-
-
-
-
-
-
-
-
