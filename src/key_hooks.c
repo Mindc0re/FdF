@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/01 17:06:50 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/04 13:56:03 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,29 @@ int			key_hook_second(int keycode, t_all *all)
 		all->depth += 0.2;
 	else if (keycode == KP_4)
 	{
-		rotation(all);
 		all->rotation->x = -10;
+		rotation_x(all);
 	}
 	else if (keycode == KP_6)
 	{
-		rotation(all);
 		all->rotation->x = 10;
+		rotation_x(all);
 	}
 	else if (keycode == KP_8)
 	{
-		rotation(all);
-		all->rotation->y += 10;
+		all->rotation->y = 10;
+		rotation_y(all);
 	}
 	else if (keycode == KP_5)
 	{
-		rotation(all);
-		all->rotation->y -= 10;
+		all->rotation->y = -10;
+		rotation_y(all);
 	}
 	else if (keycode == R)
 		all->cam->cam_pos->z += 1;
 	else if (keycode == F)
 		all->cam->cam_pos->z -= 1;
+//	printf("pos_x = %f et pos_Z = %f\n", all->cam->cam_pos->x, all->cam->cam_pos->z);
 	return (1);
 }
 

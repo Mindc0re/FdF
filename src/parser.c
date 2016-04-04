@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:37:42 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/01 16:35:57 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/04 12:13:05 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int					parser(int fd, t_all *all)
 		max_x = i > max_x ? i : max_x;
 		y++;
 	}
-	init_vector(all->midmap, max_x / 2, (y - 1) / 2, 0);
+	init_vector(all->midmap, (max_x / 2), ((y - 1) / 2), 0);
 	return (1);
 }
