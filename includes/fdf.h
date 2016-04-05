@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/05 11:15:45 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/05 12:27:49 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define FT_INIT(t, n, v)			t n = v
 # define FT_MULTI3(a, b, c)			a = b = c
 # define FT_MULTI4(a, b, c, d)		a = b = c = d
-# define FT_TER(si, alors, sinom)	si ? alors : sinon
+# define FT_TER(si, alors, sinon)	si ? alors : sinon
 
 # define WHITE 0x00FFFFFF
 # define RED 0x00FF0000
@@ -119,8 +119,10 @@ void				free_map(t_pt3d *map);
 int					key_hook_first(int keycode, t_all *all);
 int					key_hook_second(int keycode, t_all *all);
 
-int					parser(int fd, t_all *all);
+void				parser(int fd, t_all *all);
+
 int					check_arg(char *str);
 int					check_color(char *str, t_all *all);
 
+void				help_main(void);
 #endif

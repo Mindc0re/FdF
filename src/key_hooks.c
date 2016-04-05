@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/05 11:17:04 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/05 12:31:21 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int			key_hook_second(int keycode, t_all *all)
 {
+	all->rotation->x = keycode == KP_4 ? -10 : FT_TER(keycode == 6, 10, all->rotation->x);
+	all->rotation->y = keycode == KP_5 ? -10 : FT_TER(keycode == 8, 10, all->rotation->y);
 	if (keycode == S)
 		all->cam->cam_ang->x += opmod(-5, 360);
 	else if (keycode == A)
@@ -29,19 +31,10 @@ int			key_hook_second(int keycode, t_all *all)
 		all->depth -= 0.2;
 	else if (keycode == E)
 		all->depth += 0.2;
-	all->rotation->x = keycode == KP_4 ? -10 : FT_TER(keycode == 6, 10, all->rotation->x)
 	else if (keycode == KP_4 || keycode == KP_6)
 		rotation_x(all);
-	else if (keycode == KP_8)
-	{
-		all->rotation->y = 10;
+	else if (keycode == KP_5 || keycode == KP_8)
 		rotation_y(all);
-	}
-	else if (keycode == KP_5)
-	{
-		all->rotation->y = -10;
-		rotation_y(all);
-	}
 	else if (keycode == R)
 		all->cam->cam_pos->z += 1;
 	else if (keycode == F)
