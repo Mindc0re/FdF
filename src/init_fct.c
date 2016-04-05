@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/01 12:30:48 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/05 11:04:20 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		init_all(t_all *all)
 	init_vector(all->rotation, 0, 0, 0);
 	init_vector(all->midmap, 0, 0, 0);
 	all->depth = 1;
-	all->color = GOLD;
+	all->color = WHITE;
 	all->degrade = 0;
 }
 
