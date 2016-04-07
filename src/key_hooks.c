@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/05 12:31:21 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/07 10:27:17 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int			key_hook_second(int keycode, t_all *all)
 {
-	all->rotation->x = keycode == KP_4 ? -10 : FT_TER(keycode == 6, 10, all->rotation->x);
-	all->rotation->y = keycode == KP_5 ? -10 : FT_TER(keycode == 8, 10, all->rotation->y);
+	all->rotation->x = keycode == KP_4 ? -10 : FT_TER(keycode == KP_6, 10, all->rotation->x);
+	all->rotation->y = keycode == KP_5 ? -10 : FT_TER(keycode == KP_8, 10, all->rotation->y);
 	if (keycode == S)
 		all->cam->cam_ang->x += opmod(-5, 360);
 	else if (keycode == A)

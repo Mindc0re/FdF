@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 11:18:33 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/05 12:15:13 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/07 10:22:24 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ void		help_main2(void)
 	"#+#        #+#    #+#   #+#");
 	ft_putendl("                                    "
 	"###        #########    ###\n\n");
-	ft_putwstr(L"                       ~+~+~+~+~+ 1er paramètre "
+	ft_putwstr(L"                           ~+~+~+~+~+ 1er paramètre "
 	": Fichier à ouvrir ~+~+~+~+~\n");
 	ft_putwstr(L"       ~+~+~+~+~+ 2ème et 3ème paramètres :"
 	" Respectivement largeur et hauteur de la fenêtre ~+~+~+~+~+\n");
-	ft_putwstr(L"                   ~+~+~+~+~+ 4ème paramètre"
-	" : Couleur pour les segments ~+~+~+~+~+");
+	ft_putwstr(L"                       ~+~+~+~+~+ 4ème paramètre"
+	" : Couleur pour les segments ~+~+~+~+~+\n");
+	ft_putstr("                    ~+~+~+~+~+ Couleurs dispos"
+			  " : WHITE \033[0;49;35mPINK \033[31mRED \033[34mBLUE"
+			  " \033[32mGREEN \033[0;49;93mGOLD \033[0m ~+~+~+~+~+\n");
 }
 
 void		help_main(void)
