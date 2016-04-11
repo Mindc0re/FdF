@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 11:04:21 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/07 11:20:51 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 17:04:18 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			rotation_x(t_all *all)
 		+ (30 * opcos(opmod(angle, 360)));
 	all->cam->cam_pos->z = all->midmap->x
 		+ (30 * opsin(opmod(angle, 360)));
-	all->cam->cam_ang->y = opmod(all->cam->cam_ang->y - (all->rotation->x), 360);
+	all->cam->cam_ang->y = opmod(all->cam->cam_ang->y - all->rotation->x, 360);
 	angle += all->rotation->x;
 	return (0);
 }
@@ -34,7 +34,7 @@ int			rotation_y(t_all *all)
 		+ (30 * opsin(opmod(angle, 360)));
 	all->cam->cam_pos->z = all->midmap->y
 		+ (30 * opcos(opmod(angle, 360)));
-	all->cam->cam_ang->x = opmod(all->cam->cam_ang->x - (all->rotation->y), 360);
+	all->cam->cam_ang->x = opmod(all->cam->cam_ang->x - all->rotation->y, 360);
 	angle += all->rotation->y;
 	return (0);
 }

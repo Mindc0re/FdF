@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 09:06:57 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/11 16:29:45 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 17:05:44 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,5 @@ int			conversion3d(t_pt3d *point, t_all *all)
 	point->print = z_mod > 0 ? 1 : 0;
 	point->x_2d = ((10 / z_mod) * x_mod) * all->zoom + all->win_x / 2;
 	point->y_2d = ((10 / z_mod) * y_mod) * all->zoom + all->win_y / 2;
-//	printf("x_mod = %f, y_mod = %f, z_mod = %f\n", x_mod, y_mod, z_mod);
-//	printf("pt->x_2d = %f, pt->y_2d = %f, pt->x = %f, pt->y = %f, pt->z = %f\n", point->x_2d, point->y_2d, point->coord->x, point->coord->y, point->coord->z);
 	return (0);
 }

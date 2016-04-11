@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 14:45:11 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/11 15:38:27 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 17:06:09 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int				draw_line(t_pt3d *start, t_pt3d *end, t_all *all)
 	double		inc[2];
 	t_line		*line;
 
-//	printf("end->y = %f, start->y = %f\n", end->y_2d, start->y_2d);
 	FT_INIT(double, dx, end->x_2d - start->x_2d);
 	FT_INIT(double, dy, end->y_2d - start->y_2d);
 	inc[0] = dx < 0 ? -1 : 1;

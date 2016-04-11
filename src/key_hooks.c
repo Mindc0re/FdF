@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/11 15:32:44 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 17:44:44 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 void		key_hook_third(int keycode, t_all *all)
 {
 	static int on = 1;
+
 	if (keycode == H)
 	{
 		if (on == 1)
 		{
 			mlx_clear_window(all->mlx, all->win);
+			mlx_string_put(all->mlx, all->win, all->win_x / 2 - 205,
+			all->win_y / 2 - 205, all->color,
+			"Touches directionnelles pour bouger la ");
 			help_fdf(all);
 		}
 		else
@@ -30,34 +34,38 @@ void		key_hook_third(int keycode, t_all *all)
 		}
 		on *= -1;
 	}
+	else if (keycode == KP_LESS)
+		all->zoom -= 1;
+	else if (keycode == W)
+		all->cam->cam_ang->x += opmod(5, 360);
 }
 
-void		key_hook_second(int keycode, t_all *all)
+void		key_hook_second(int k, t_all *a)
 {
-	all->rotation->x = keycode == KP_4 ? -10 : FT_TER(keycode == KP_6, 10, all->rotation->x);
-	all->rotation->y = keycode == KP_5 ? -10 : FT_TER(keycode == KP_8, 10, all->rotation->y);
-	if (keycode == S)
-		all->cam->cam_ang->x += opmod(-5, 360);
-	else if (keycode == A)
-		all->cam->cam_ang->y += opmod(-5, 360);
-	else if (keycode == D)
-		all->cam->cam_ang->y += opmod(5, 360);
-	else if (keycode == ALT_L)
-		all->cam->cam_ang->z += opmod(5, 360);
-	else if (keycode == ALT_R)
-		all->cam->cam_ang->z += opmod(-5, 360);
-	else if (keycode == Q)
-		all->depth -= 0.2;
-	else if (keycode == E)
-		all->depth += 0.2;
-	else if (keycode == KP_4 || keycode == KP_6)
-		rotation_x(all);
-	else if (keycode == KP_5 || keycode == KP_8)
-		rotation_y(all);
-	else if (keycode == R)
-		all->cam->cam_pos->z += 1;
-	else if (keycode == F)
-		all->cam->cam_pos->z -= 1;
+	a->rotation->x = k == KP_4 ? -10 : FT_TER(k == KP_6, 10, a->rotation->x);
+	a->rotation->y = k == KP_5 ? -10 : FT_TER(k == KP_8, 10, a->rotation->y);
+	if (k == S)
+		a->cam->cam_ang->x += opmod(-5, 360);
+	else if (k == A)
+		a->cam->cam_ang->y += opmod(-5, 360);
+	else if (k == D)
+		a->cam->cam_ang->y += opmod(5, 360);
+	else if (k == ALT_L)
+		a->cam->cam_ang->z += opmod(5, 360);
+	else if (k == ALT_R)
+		a->cam->cam_ang->z += opmod(-5, 360);
+	else if (k == Q)
+		a->depth -= 0.2;
+	else if (k == E)
+		a->depth += 0.2;
+	else if (k == KP_4 || k == KP_6)
+		rotation_x(a);
+	else if (k == KP_5 || k == KP_8)
+		rotation_y(a);
+	else if (k == R)
+		a->cam->cam_pos->z += 1;
+	else if (k == F)
+		a->cam->cam_pos->z -= 1;
 }
 
 int			key_hook_first(int keycode, t_all *all)
@@ -78,16 +86,12 @@ int			key_hook_first(int keycode, t_all *all)
 		all->cam->cam_pos->y += 1;
 	else if (keycode == KP_MORE)
 		all->zoom += 1;
-	else if (keycode == KP_LESS)
-		all->zoom -= 1;
-	else if (keycode == W)
-		all->cam->cam_ang->x += opmod(5, 360);
+	key_hook_third(keycode, all);
 	if (keycode != H)
 	{
 		key_hook_second(keycode, all);
 		mlx_clear_window(all->mlx, all->win);
 		draw_map_x(all);
 	}
-	key_hook_third(keycode, all);
 	return (1);
 }

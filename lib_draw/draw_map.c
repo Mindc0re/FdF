@@ -6,14 +6,14 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 11:35:37 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/07 11:18:34 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 17:02:49 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include "../includes/lib_draw.h"
 
-int				draw_map_y(t_all *all)
+void			draw_map_y(t_all *all)
 {
 	t_pt3d		*tmp_x;
 	t_pt3d		*tmp_prev;
@@ -38,10 +38,8 @@ int				draw_map_y(t_all *all)
 			else
 				tmp = tmp->next;
 		}
-		tmp_x = tmp_x->next;
-		FT_MULTI3(tmp, tmp_prev, tmp_x);
+		FT_MULTI4(tmp, tmp_prev, tmp_x, tmp_x->next);
 	}
-	return (1);
 }
 
 int				draw_map_x(t_all *all)
@@ -62,7 +60,6 @@ int				draw_map_x(t_all *all)
 				draw_line(tmp, tmp->next, all);
 		}
 		tmp = tmp->next;
-//		printf("coord point = %f %f %f\n", tmp->coord->x, tmp->coord->y, tmp->coord->z);
 	}
 	draw_map_y(all);
 	return (1);
