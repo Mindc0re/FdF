@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/05 12:27:49 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 15:35:08 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ enum {
 	D,
 	R = 15,
 	F = 3,
+	H,
 	KP_MORE = 69,
 	KP_LESS = 78,
 	KP_1 = 83,
@@ -96,8 +97,8 @@ typedef struct		s_all
 {
 	void			*mlx;
 	void			*win;
-	int				win_len;
-	int				win_wid;
+	int				win_x;
+	int				win_y;
 	int				color;
 	int				degrade;
 	double			depth;
@@ -117,7 +118,6 @@ void				free_all(t_all *all);
 void				free_map(t_pt3d *map);
 
 int					key_hook_first(int keycode, t_all *all);
-int					key_hook_second(int keycode, t_all *all);
 
 void				parser(int fd, t_all *all);
 
@@ -125,4 +125,5 @@ int					check_arg(char *str);
 int					check_color(char *str, t_all *all);
 
 void				help_main(void);
+void				help_fdf(t_all *all);
 #endif

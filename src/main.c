@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 15:15:48 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/07 10:46:23 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 15:35:26 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ int		main(int ac, char **av)
 	if (ac >= 2)
 	{
 		all.mlx = mlx_init();
-		all.win_len = (ac >= 4 && check_arg(av[2])) ? ft_atoi(av[2]) : 500;
-		all.win_wid = (ac >= 4 && check_arg(av[3])) ? ft_atoi(av[3]) : 500;
-		all.win = mlx_new_window(all.mlx, all.win_len, all.win_wid, "FdF");
+		all.win_x = (ac >= 4 && check_arg(av[2])) ? ft_atoi(av[2]) : 500;
+		all.win_y = (ac >= 4 && check_arg(av[3])) ? ft_atoi(av[3]) : 500;
+		all.win = mlx_new_window(all.mlx, all.win_x, all.win_y, "FdF");
 		init_all(&all);
+//		mlx_do_key_autorepeaton(all.mlx);
 		if (ac == 5)
 			check_color(av[4], &all);
 		fd = open(av[1], O_RDONLY);

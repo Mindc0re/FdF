@@ -6,14 +6,33 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/07 10:38:14 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 15:32:44 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include "../includes/lib_draw.h"
 
-int			key_hook_second(int keycode, t_all *all)
+void		key_hook_third(int keycode, t_all *all)
+{
+	static int on = 1;
+	if (keycode == H)
+	{
+		if (on == 1)
+		{
+			mlx_clear_window(all->mlx, all->win);
+			help_fdf(all);
+		}
+		else
+		{
+			mlx_clear_window(all->mlx, all->win);
+			draw_map_x(all);
+		}
+		on *= -1;
+	}
+}
+
+void		key_hook_second(int keycode, t_all *all)
 {
 	all->rotation->x = keycode == KP_4 ? -10 : FT_TER(keycode == KP_6, 10, all->rotation->x);
 	all->rotation->y = keycode == KP_5 ? -10 : FT_TER(keycode == KP_8, 10, all->rotation->y);
@@ -39,7 +58,6 @@ int			key_hook_second(int keycode, t_all *all)
 		all->cam->cam_pos->z += 1;
 	else if (keycode == F)
 		all->cam->cam_pos->z -= 1;
-	return (1);
 }
 
 int			key_hook_first(int keycode, t_all *all)
@@ -64,8 +82,12 @@ int			key_hook_first(int keycode, t_all *all)
 		all->zoom -= 1;
 	else if (keycode == W)
 		all->cam->cam_ang->x += opmod(5, 360);
-	key_hook_second(keycode, all);
-	mlx_clear_window(all->mlx, all->win);
-	draw_map_x(all);
+	if (keycode != H)
+	{
+		key_hook_second(keycode, all);
+		mlx_clear_window(all->mlx, all->win);
+		draw_map_x(all);
+	}
+	key_hook_third(keycode, all);
 	return (1);
 }

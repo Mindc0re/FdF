@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 11:18:33 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/07 10:22:24 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 16:44:44 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,34 @@ void		help_main(void)
 	ft_putendl("###    ### ###     ###     ###"
 "     ##########          ###         ########  ###    ####"
 "          ###       ");
+}
+
+void		help_fdf(t_all *all)
+{
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 205, all->win_y / 2 - 205,
+	all->color, "Touches directionnelles pour bouger la ");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 100, all->win_y / 2 - 175,
+	all->color, "camera sur x et y");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 180, all->win_y / 2 - 140,
+	all->color, "R et F pour bouger la camera sur z");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 200, all->win_y / 2 - 105,
+	all->color, "WASD pour pivoter la camera sur x et y");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 200, all->win_y / 2 - 70,
+	all->color, "ALT G & D pour pivoter la camera sur z");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 150, all->win_y / 2 - 35,
+	all->color, "+ et - du keypad pour zoomer");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 190, all->win_y / 2,
+	all->color, "Q et E pour modifier le z des points");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 190, all->win_y / 2 + 35,
+	all->color, "4 et 6 du keypad pour la rotation de ");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 90, all->win_y / 2 + 70,
+	all->color, "la camera sur x");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 190, all->win_y / 2 + 105,
+	all->color, "5 et 8 du keypad pour la rotation de ");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 90, all->win_y / 2 + 140,
+	all->color, "la camera sur y");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 190, all->win_y / 2 + 175,
+	all->color, "H pour quitter le menu de binding des ");
+	mlx_string_put(all->mlx, all->win, all->win_x / 2 - 90, all->win_y / 2 + 205,
+	all->color, "touches, enjoy !");
 }

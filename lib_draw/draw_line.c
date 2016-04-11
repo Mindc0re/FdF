@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 14:45:11 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/07 11:18:27 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/11 15:38:27 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int		line_2(t_line *line, double dx, double dy, t_all *all)
 			cumul -= fabs(dy);
 			x += line->inc_x;
 		}
-		if (x >= 0 && x <= all->win_len && y >= 0 && y <= all->win_wid)
+		if (x >= 0 && x <= all->win_x && y >= 0 && y <= all->win_y)
 			mlx_pixel_put(all->mlx, all->win, x, y, all->color);
 	}
 	return (0);
@@ -72,7 +72,7 @@ static int		line_1(t_line *line, double dx, double dy, t_all *all)
 			cumul -= fabs(dx);
 			y += line->inc_y;
 		}
-		if (x >= 0 && x <= all->win_len && y >= 0 && y <= all->win_wid)
+		if (x >= 0 && x <= all->win_x && y >= 0 && y <= all->win_y)
 			mlx_pixel_put(all->mlx, all->win, x, y, all->color);
 	}
 	return (0);
