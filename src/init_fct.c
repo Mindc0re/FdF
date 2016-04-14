@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 09:19:02 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/05 11:04:20 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/14 18:00:08 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void		init_all(t_all *all)
 	all->midmap = (t_vector *)malloc(sizeof(t_vector));
 	all->rotation = (t_vector *)malloc(sizeof(t_vector));
 	all->zoom = 10;
-	init_vector(all->cam->cam_pos, 0, 0, -30);
-	init_vector(all->cam->cam_ang, 0, 0, 0);
+	init_vector(all->cam->cam_pos, 3.000000, 19.260606, -23.190778);
+	init_vector(all->cam->cam_ang, 55.000000, 720.000000, 3965.000000);
 	init_vector(all->rotation, 0, 0, 0);
 	init_vector(all->midmap, 0, 0, 0);
 	all->depth = 1;
