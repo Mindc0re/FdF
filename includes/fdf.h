@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:20:27 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/11 15:35:08 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/15 09:43:27 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "../libft/includes/get_next_line.h"
 # include <mlx.h>
 # include <math.h>
-# include <stdio.h>
 # include <time.h>
 
 # define FT_INIT(t, n, v)			t n = v
@@ -97,6 +96,7 @@ typedef struct		s_all
 {
 	void			*mlx;
 	void			*win;
+	int				fd;
 	int				win_x;
 	int				win_y;
 	int				color;

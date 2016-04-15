@@ -6,7 +6,7 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 10:47:58 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/14 17:46:43 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/15 09:49:36 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,5 @@ int			key_hook_first(int keycode, t_all *all)
 		mlx_clear_window(all->mlx, all->win);
 		draw_map_x(all);
 	}
-	printf("pos_x = %f, pos_y = %f, pos_z = %f, ang_x = %f, ang_y = %f, ang_z = %f\n",
-		   all->cam->cam_pos->x, all->cam->cam_pos->y, all->cam->cam_pos->z, all->cam->cam_ang->x, all->cam->cam_ang->y, all->cam->cam_ang->z);
 	return (1);
 }

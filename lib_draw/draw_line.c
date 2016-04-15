@@ -6,13 +6,13 @@
 /*   By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 14:45:11 by sgaudin           #+#    #+#             */
-/*   Updated: 2016/04/11 17:06:09 by sgaudin          ###   ########.fr       */
+/*   Updated: 2016/04/15 09:45:34 by sgaudin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static t_line	*init_line(t_pt3d *s, t_pt3d *e, double inc[2], t_all *all)
+static t_line	*init_line(t_pt3d *s, t_pt3d *e, double inc[2])
 {
 	t_line *line;
 
@@ -80,8 +80,6 @@ static int		line_1(t_line *line, double dx, double dy, t_all *all)
 
 int				draw_line(t_pt3d *start, t_pt3d *end, t_all *all)
 {
-	double		inc_x;
-	double		inc_y;
 	double		inc[2];
 	t_line		*line;
 
@@ -89,7 +87,7 @@ int				draw_line(t_pt3d *start, t_pt3d *end, t_all *all)
 	FT_INIT(double, dy, end->y_2d - start->y_2d);
 	inc[0] = dx < 0 ? -1 : 1;
 	inc[1] = dy < 0 ? -1 : 1;
-	if (!(line = init_line(start, end, inc, all)))
+	if (!(line = init_line(start, end, inc)))
 		return (-1);
 	dx = fabs(dx);
 	dy = fabs(dy);

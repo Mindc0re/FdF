@@ -6,13 +6,13 @@
 #    By: sgaudin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/18 17:13:57 by sgaudin           #+#    #+#              #
-#    Updated: 2016/04/05 11:32:14 by sgaudin          ###   ########.fr        #
+#    Updated: 2016/04/15 09:41:29 by sgaudin          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = fdf
 
-CC = gcc #-Wall -Wextra -Werror
+CC = gcc -Wall -Wextra -Werror
 
 LIB_D = lib_draw/
 
